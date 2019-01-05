@@ -8,6 +8,7 @@ use App\Core\App;
 
 #-- call app bootstrap
 $app = new App();
+$app->bootstrap();
 
 #-- Call Routes
 AppRouter::init();

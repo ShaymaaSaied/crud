@@ -1,0 +1,228 @@
+/* Common */
+
+body {
+    font: normal 18px/1.5 "Montserrat", helvetica, arial, sans-serif;
+}
+header{
+    background:#000A0F ;
+}
+a {
+    text-decoration: none;
+}
+nav {
+    line-height: 108px;
+    height: 108px;
+    float: right;
+    width: 65%;
+}
+nav ul {
+    text-transform: uppercase;
+    text-align:justify;
+}
+nav ul:after {
+    content:'';
+    display:inline-block;
+    width: 100%;
+    height: 0;
+}
+nav li{
+    display: inline;
+}
+
+nav a {
+    padding: 1em 0;
+}
+nav a {
+    color: #faf3e7;
+}
+nav a:focus, nav a:hover, nav a:active {
+    text-decoration: underline;
+}
+
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+/* data Grid*/
+.datagrid table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+
+.datagrid {
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    overflow: hidden;
+    border: 1px solid #000A0F;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.datagrid table td, .datagrid table th {
+    padding: 3px 10px;
+}
+
+.datagrid table thead th {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #000A0F), color-stop(1, #000A0F));
+    background: -moz-linear-gradient(center top, #000A0F 5%, #000A0F 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000A0F', endColorstr='#000A0F');
+    background-color: #000A0F;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    border-left: 1px solid #5E6369;
+}
+
+.datagrid table thead th:first-child {
+    border: none;
+}
+
+.datagrid table tbody td {
+    color: #000A0F;
+    border-left: 1px solid #5E6366;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.datagrid table tbody .alt td {
+    background: #8D9599;
+    color: #000C12;
+}
+
+.datagrid table tbody td:first-child {
+    border-left: none;
+}
+
+.datagrid table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.datagrid table tfoot td div {
+    border-top: 1px solid #000A0F;
+    background: #8D9599;
+}
+
+.datagrid table tfoot td {
+    padding: 0;
+    font-size: 12px
+}
+
+.datagrid table tfoot td div {
+    padding: 2px;
+}
+
+.datagrid table tfoot td ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: right;
+}
+
+.datagrid table tfoot li {
+    display: inline;
+}
+
+.datagrid table tfoot li a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 1px;
+    color: #FFFFFF;
+    border: 1px solid #000A0F;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #000A0F), color-stop(1, #1F1F21));
+    background: -moz-linear-gradient(center top, #000A0F 5%, #1F1F21 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000A0F', endColorstr='#1F1F21');
+    background-color: #000A0F;
+}
+
+.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover {
+    text-decoration: none;
+    border-color: #000A0F;
+    color: #FFFFFF;
+    background: none;
+    background-color: #5F5D63;
+}
+
+div.dhtmlx_window_active, div.dhx_modal_cover_dv {
+    position: fixed !important;
+}
+
+/* Form */
+form {
+    background-color: #FFFFFF;
+    border: 1px solid #000A0F;
+    border-radius: 3px;
+    width: 80%;
+    padding: 50px;
+    margin: 0 0 40px 0;
+}
+.form-row {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.form-row input[type='text'],
+.form-row input[type='email']{
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    width: 100%;
+    padding: 7px;
+    font-size: 14px;
+}
+
+.form-row label {
+    margin-bottom: 15px;
+}
+
+.form-row button {
+    font-size: 16px;
+    font-weight: bold;
+
+    color: #FFFFFF;
+    background-color: #000A0F;
+
+    border: none;
+    border-radius: 3px;
+
+    padding: 10px 40px;
+    cursor: pointer;
+}
+
+.form-row button:hover {
+    background-color: #5E6369;
+}
+
+.form-row button:active {
+    background-color: #5F5D63;
+}
+@media only screen and (min-width: 700px) {
+    .form-header,
+    form {
+        width: 600px;
+    }
+    .form-row {
+        flex-direction: row;
+        align-items: flex-start; /* To avoid stretching */
+        margin-bottom: 20px;
+    }
+    .form-row input[type='text'],
+    .form-row input[type='email']{
+        width: 250px;
+        height: initial;
+    }
+    .form-row label {
+        text-align: right;
+        width: 120px;
+        margin-top: 7px;
+        padding-right: 20px;
+    }
+}

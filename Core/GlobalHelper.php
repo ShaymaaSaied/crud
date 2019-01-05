@@ -84,12 +84,48 @@ function csrf_token(): ?string{
     return null;
 }
 
-
+/**
+ * @return bool|string
+ */
 function getBasePath(){
     return realpath(__DIR__.'/../');
 }
 
+/**
+ * @return mixed
+ */
+function getBaseUrl(){
+    $url =  sprintf(
+        "%s://%s%s",
+        isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+        $_SERVER['SERVER_NAME'],
+        $_SERVER['REQUEST_URI']
+    );
+
+    return str_replace(rtrim(request()->getUrl()->getRelativeUrl(), '/'), '', rtrim($url, '/'));
+}
+
+/**
+ * @return Twig_Environment
+ */
 function twig(){
     global $app;
     return $app->getTwig();
+}
+
+/**
+ * @return \ParagonIE\EasyDB\EasyDB
+ */
+function db(){
+    global $app;
+    return $app->getDb();
+}
+
+/**
+ * @param $path
+ * @return mixed|null
+ */
+function config($path){
+    global $app;
+    return $app->getConfig()->getConfig($path);
 }

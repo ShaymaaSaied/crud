@@ -1,7 +1,16 @@
 <?php
 namespace App\Code\Controller;
 
-class HomeController{
+use App\Code\Model\Author;
+use App\Core\Mvc\Controller\AbstractController;
+
+class HomeController extends AbstractController {
+    private $author;
+
+    public function _init(){
+        $this->author = new Author();
+    }
+
     /**
      * @return string
      * @throws \Twig_Error_Loader
@@ -9,12 +18,15 @@ class HomeController{
      * @throws \Twig_Error_Syntax
      */
     public function index(){
+        /*print_r($this->author->getAll());
+        exit;*/
+
         //print_r(request()->getInputHandler()->get('id')->getValue());
-        if(request()->isAjax()){
-            return response()->json(['test'=>'val']);
+        if($this->request->isAjax()){
+            return $this->request->json(['test'=>'val']);
         }
         //return response()->json(['test'=>'val']);
 
-        return twig()->load('home.html')->render(['a_variable' => "Hi, This is a template"]);
+        return $this->twig->load('home.twig')->render(['a_variable' => "Hi, This is a template"]);
     }
 }

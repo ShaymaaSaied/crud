@@ -11,11 +11,11 @@
     "minimum-stability": "dev",
     "require": {
         "pecee/simple-router": "dev-master",
-        "twig/twig": "^2.0"
+        "twig/twig": "^2.0",
+        "paragonie/easydb": "^2"
     },
     "autoload": {
         "psr-4": {
-            "App\\Config\\": "Config/",
             "App\\Code\\": "Code/",
             "App\\Core\\": "Core/"
         },

@@ -10,5 +10,6 @@ class AppRouter{
 
     static public function callRoutes(){
         SimpleRouter::get('/', 'HomeController@index');
+        SimpleRouter::get('/home', 'HomeController@index');
     }
 }
