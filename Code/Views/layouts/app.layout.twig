@@ -1,26 +1,32 @@
 <html>
 <head>
     {% block head %}
-    <link rel="stylesheet" href="/public/assets/css/app.css" />
-    <title>{% block title %}{% endblock %} - CRUD with Custom Platform By. Shaymaa</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/public/assets/css/app.css" />
+        <title>{% block title %}{% endblock %} - CRUD with Custom Platform By. Shaymaa</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     {% endblock %}
 </head>
 <body>
 <div class="main-page">
     <header>
-        <div class="top-header">
+        <div>
             {% include 'partials/header.twig' %}
         </div>
-        <nav>
-            {% include 'partials/nav.twig' %}
-        </nav>
     </header>
     <div class="container">
+        <div>{{ messages|raw }}</div>
         <div class="content">{% block content %}{% endblock %}</div>
     </div>
     <footer>
         {% include 'partials/footer.twig' %}
     </footer>
 </div>
+
+<!-- Defrid JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>

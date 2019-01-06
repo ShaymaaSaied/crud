@@ -1,0 +1,72 @@
+{% extends "layouts/app.layout.twig" %}
+
+{% block title %}Create New Author{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <form class="form-horizontal" method="post" action="/authors/create">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Add New Author</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="first_name">First Name</label>
+                <div class="col-md-6">
+                    <input id="first_name" name="first_name" type="text" placeholder="please enter first name" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="middle_name">Middle Name</label>
+                <div class="col-md-6">
+                    <input id="middle_name" name="middle_name" type="text" placeholder="please enter middle name" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="last_name">Last Name</label>
+                <div class="col-md-6">
+                    <input id="last_name" name="last_name" type="text" placeholder="please enter last name" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="email">Email</label>
+                <div class="col-md-6">
+                    <input id="email" name="email" type="text" placeholder="Please enter valid email" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="bio">Bio</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="bio" name="bio"></textarea>
+                </div>
+            </div>
+
+            <!-- Button (Double) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="submit">Submit</label>
+                <div class="col-md-8">
+                    <button id="submit" name="submit" class="btn btn-primary">Submit Form</button>
+                    <a id="cancel" href="/authors" class="btn btn-danger">Cencel</a>
+                </div>
+            </div>
+
+        </fieldset>
+
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    </form>
+{% endblock %}

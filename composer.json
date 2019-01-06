@@ -12,7 +12,8 @@
     "require": {
         "pecee/simple-router": "dev-master",
         "twig/twig": "^2.0",
-        "paragonie/easydb": "^2"
+        "paragonie/easydb": "^2",
+        "tamtamchik/simple-flash": "^2.0@dev"
     },
     "autoload": {
         "psr-4": {

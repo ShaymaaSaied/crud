@@ -13,6 +13,9 @@ class App{
      * App bootstrap.
      */
     public function bootstrap(){
+        // Start a Session
+        if( !session_id() ) @session_start();
+
         $this->configLoader = new CoreLoader\Config\Loader();
         $this->twigLoader   = new CoreLoader\TemplateEngine\Loader();
         $this->dbLoader     = new CoreLoader\Database\Loader();

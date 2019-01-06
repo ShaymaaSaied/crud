@@ -21,12 +21,18 @@ class HomeController extends AbstractController {
         /*print_r($this->author->getAll());
         exit;*/
 
+        $this->flash->error(['Invalid email!', 'Invalid username!'])
+            ->warning('Warning message.')
+            ->info('Info message.')
+            ->success('Success message!');
+
         //print_r(request()->getInputHandler()->get('id')->getValue());
         if($this->request->isAjax()){
             return $this->request->json(['test'=>'val']);
         }
         //return response()->json(['test'=>'val']);
 
-        return $this->twig->load('home.twig')->render(['a_variable' => "Hi, This is a template"]);
+        $messages = flash()->display();
+        return $this->twig->load('home.twig')->render(['messages' => $messages]);
     }
 }
