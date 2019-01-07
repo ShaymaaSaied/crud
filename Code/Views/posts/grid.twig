@@ -1,23 +1,22 @@
 {% extends "layouts/app.layout.twig" %}
 
-{% block title %}Home Page{% endblock %}
+{% block title %}Posts List{% endblock %}
 {% block head %}
     {{ parent() }}
 {% endblock %}
 
 {% block content %}
-    <h1>Authors List</h1>
+    <h1>Posts List For Author [{{ author_name }}]</h1>
 
     <div>
-        <a class="btn btn-primary btn-large" href="/authors/create"><i class="fa fa-plus-square"></i> Add new record</a>
+        <a class="btn btn-primary btn-large" href="/authors/{{ author_id }}/posts/create"><i class="fa fa-plus-square"></i> Add new record</a>
     </div>
     <div class="datagrid">
         <table>
             <thead>
             <tr>
                 <th>SN.</th>
-                <th>Name</th>
-                <th>Email</th>
+                <th>Subject</th>
                 <th>Created At</th>
                 <th>Last Updated</th>
                 <th>Actions</th>
@@ -26,16 +25,14 @@
             <tbody>
             {% for row in grid_rows %}
                 <tr>
-                    <td>{{ row.author_id }}</td>
-                    <td>{{ row.name }}</td>
-                    <td>{{ row.email }}</td>
+                    <td>{{ row.post_id }}</td>
+                    <td>{{ row.subject }}</td>
                     <td>{{ row.created_at }}</td>
                     <td>{{ row.updated_at }}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="...">
-                            <a href="/authors/edit/{{ row.author_id }}" class="btn btn-default"><i class="fa fa-edit"></i></a>
-                            <a href="#" class="btn btn-default" data-href="/authors/delete/{{ row.author_id }}" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
-                            <a href="/authors/{{ row.author_id }}/posts/" class="btn btn-default"><i class="fa fa-sitemap"></i></a>
+                            <a href="/authors/{{ author_id }}/posts/edit/{{ row.post_id }}" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                            <a href="#" class="btn btn-default" data-href="/authors/{{ author_id }}/posts/delete/{{ row.post_id }}" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
                         </div>
                     </td>
                 </tr>

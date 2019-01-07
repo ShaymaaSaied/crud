@@ -9,8 +9,12 @@ class AppRouter{
     }
 
     static public function callRoutes(){
-        SimpleRouter::get('/', 'HomeController@index');
-        SimpleRouter::get('/home', 'HomeController@index');
+        /*
+         * HOME PAGE
+         */
+        SimpleRouter::get('/', function (){
+            response()->redirect('/authors');
+        });
 
         /*
          * AUTHOR ROUTES
@@ -19,5 +23,13 @@ class AppRouter{
         SimpleRouter::match(['get', 'post'], '/authors/edit/{id}', 'AuthorController@edit')->name('authors.edit');
         SimpleRouter::match(['get', 'post'], '/authors/create', 'AuthorController@create')->name('authors.create');
         SimpleRouter::match(['get', 'post'], '/authors/delete/{id}', 'AuthorController@delete')->name('authors.delete');
+
+        /*
+         * POSTS ROUTES
+         */
+        SimpleRouter::get('/authors/{id}/posts', 'PostsController@index')->name('posts');
+        SimpleRouter::match(['get', 'post'], '/authors/{id}/posts/edit/{postId}', 'PostsController@edit')->name('posts.edit');
+        SimpleRouter::match(['get', 'post'], '/authors/{id}/posts/create', 'PostsController@create')->name('posts.create');
+        SimpleRouter::match(['get', 'post'], '/authors/{id}/posts/delete/{postId}', 'PostsController@delete')->name('posts.delete');
     }
 }

@@ -1,0 +1,45 @@
+{% extends "layouts/app.layout.twig" %}
+
+{% block title %}Create New Post{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <form class="form-horizontal" method="post" action="/authors/{{ author_id }}/posts/create">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Add New Post For Author [{{ author_name }}]</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="subject">Subject</label>
+                <div class="col-md-6">
+                    <input id="subject" name="subject" type="text" placeholder="please enter subject" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="content">Content</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="content" name="content"></textarea>
+                </div>
+            </div>
+
+            <!-- Button (Double) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="submit">Submit</label>
+                <div class="col-md-8">
+                    <button id="submit" name="submit" class="btn btn-primary">Submit Form</button>
+                    <a id="cancel" href="/posts" class="btn btn-danger">Cancel</a>
+                </div>
+            </div>
+
+        </fieldset>
+
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <input type="hidden" name="author_id" value="{{ author_id }}">
+    </form>
+{% endblock %}
